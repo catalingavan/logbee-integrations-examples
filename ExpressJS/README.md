@@ -9,4 +9,32 @@ npm i
 node .\index.js
 ```
 
-https://github.com/catalingavan/logbee-integrations-examples/blob/f31d9c5e24f6095c5b7764e87918148dd9610a62/ExpressJS/index.js#L1-L37
+```js
+const express = require('express');
+const { logbee } = require('@logbee/express');
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(logbee.middleware({
+    organizationId: '_OrganizationId_',
+    applicationId: '_ApplicationId_',
+    logbeeApiUri: 'https://api.logbee.net'
+}));
+
+app.get("/", (req, res) => {
+    const logger = logbee.logger(req);
+    logger?.info('An info message', 'with', 'multiple', 'args', { 'foo': 'bar' });
+
+    res.send('Hello World!');
+});
+
+app.use(logbee.exceptionMiddleware());
+
+app.listen(port, () => {
+    console.log(`[server]: Server is running at http://localhost:${port}`);
+});
+```
