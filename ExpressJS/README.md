@@ -27,7 +27,7 @@ app.use(logbee.middleware({
 
 app.get("/", (req, res) => {
     const logger = logbee.logger(req);
-    logger?.info('An info message', 'with', 'multiple', 'args', { 'foo': 'bar' });
+    logger?.info('Hello world from ExpressJS');
 
     res.send('Hello World!');
 });
