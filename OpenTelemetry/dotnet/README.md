@@ -1,3 +1,45 @@
 # OpenTelemetry for .NET
 
-Example of .NET applications using [OpenTelemetry](https://opentelemetry.io/docs/languages/net/) to send the logs and traces to logbee.net
+.NET applications using [OpenTelemetry](https://opentelemetry.io/docs/languages/net/) to send the logs and traces to logbee.net
+
+```csharp
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracingBuilder =>
+    {
+        tracingBuilder
+            .SetResourceBuilder(ResourceBuilder.CreateDefault()
+               .AddAttributes(
+               [
+                   new("LogBee.OrganizationId", "_OrganizationId_"),
+                   new("LogBee.ApplicationId", "_ApplicationId_")
+               ])
+           )
+            .AddAspNetCoreInstrumentation()
+            .AddOtlpExporter(opt =>
+            {
+                opt.Endpoint = new Uri("https://api.logbee.net/open-telemetry/v1/traces");
+                opt.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf;
+                opt.ExportProcessorType = ExportProcessorType.Batch;
+            });
+    });
+
+builder.Logging.AddOpenTelemetry(options =>
+{
+    options.IncludeScopes = true;
+    options.IncludeFormattedMessage = true;
+
+    options
+        .SetResourceBuilder(ResourceBuilder.CreateDefault()
+            .AddAttributes(
+            [
+                new("LogBee.OrganizationId", "_OrganizationId_"),
+                new("LogBee.ApplicationId", "_ApplicationId_")
+            ]))
+        .AddOtlpExporter(opt =>
+        {
+            opt.Endpoint = new Uri("https://api.logbee.net/open-telemetry/v1/logs");
+            opt.Protocol = OpenTelemetry.Exporter.OtlpExportProtocol.HttpProtobuf;
+            opt.ExportProcessorType = ExportProcessorType.Batch;
+        });
+});
+```
