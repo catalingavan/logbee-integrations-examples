@@ -13,11 +13,11 @@ processors:
 
 exporters:
   otlphttp/trace_exporter:
-    endpoint: "http://host.docker.internal:5265/open-telemetry" # replace with https://api.logbee.net/open-telemetry
+    endpoint: "https://api.logbee.net/open-telemetry"
     compression: none
 
   otlphttp/log_exporter:
-    endpoint: "http://host.docker.internal:5265/open-telemetry" # replace with https://api.logbee.net/open-telemetry
+    endpoint: "https://api.logbee.net/open-telemetry"
     compression: none
     
   debug:
