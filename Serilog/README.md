@@ -1,16 +1,27 @@
 # Serilog
 
-Example of .NET applications using [Serilog](https://github.com/serilog/serilog) to send the logs to logbee.net
+Example of .NET applications using [Serilog.Sinks.LogBee](https://github.com/catalingavan/serilog-sinks-logbee/tree/main) to send the Serilog events to logbee.net
+
+[![Latest version](https://img.shields.io/nuget/v/Serilog.Sinks.LogBee.svg?style=flat-square&label=Serilog.Sinks.LogBee)](https://www.nuget.org/packages?q=Serilog.Sinks.LogBee) [![Downloads](https://img.shields.io/nuget/dt/Serilog.Sinks.LogBee.svg?style=flat-square&label=Downloads)](https://www.nuget.org/packages?q=Serilog.Sinks.LogBee)
 
 ```csharp
-Log.Logger =
-    new LoggerConfiguration()
-        .WriteTo.LogBee(
-            new LogBeeApiKey(
-                "0337cd29-a56e-42c1-a48a-e900f3116aa8",
-                "4f729841-b103-460e-a87c-be6bd72f0cc9",
-                "https://api.logbee.net/"
-            )
-        )
-        .CreateLogger();
+using Serilog;
+using Serilog.Sinks.LogBee;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.LogBee(new LogBeeApiKey("_OrganizationId_", "_ApplicationId_", "https://api.logbee.net"))
+    .CreateLogger();
+
+try
+{
+    Log.Information("Hello from {Name}!", "Serilog");
+}
+catch(Exception ex)
+{
+    Log.Error(ex, "Unhandled exception");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 ```
