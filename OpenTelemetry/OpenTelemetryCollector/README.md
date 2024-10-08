@@ -1,6 +1,6 @@
 # OpenTelemetry Collector
 
-Example sending logs and traces to logbee.net from an OpenTelemetryCollector
+Sending logs and traces from OpenTelemetry Collector to logbee.net
 
 ```
 docker-compose up
