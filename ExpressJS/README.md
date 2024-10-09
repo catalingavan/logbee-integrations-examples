@@ -1,6 +1,6 @@
 # ExpressJS
 
-ExpressJS application using [@logbee/express](https://www.npmjs.com/package/@logbee/express) package to send the logs to logbee.net
+ExpressJS application using [@logbee/express](https://www.npmjs.com/package/@logbee/express) package to send the logs to Logbee.
 
 To get started, run:
 
