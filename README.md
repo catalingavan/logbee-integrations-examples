@@ -15,4 +15,5 @@ ApplicationId  = "4f729841-b103-460e-a87c-be6bd72f0cc9"
 ApiUrl         = "https://api.logbee.net/"
 ```
 
-[![Serilog](/assets/serilog-180px.png)](/Serilog)
+- [![Serilog](/assets/serilog-180px.png)](/Serilog)
+- [![KissLog](/assets/kisslog-64.png)](/KissLog)
