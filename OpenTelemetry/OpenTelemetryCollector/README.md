@@ -1,6 +1,6 @@
 # OpenTelemetry Collector
 
-[OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) container which is sending the logs and traces to Logbee.
+[OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) container which sends the logs and traces to Logbee.
 
 ```
 docker-compose up
