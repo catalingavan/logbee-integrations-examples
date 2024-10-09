@@ -1,4 +1,4 @@
-﻿namespace KissLogExample.ConsoleApp
+﻿namespace KissLogExample.ConsoleApp.Example2
 {
     public interface IMainService
     {

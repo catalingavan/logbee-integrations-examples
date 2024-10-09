@@ -3,19 +3,17 @@ using KissLog.AspNetCore;
 using KissLog.CloudListeners.Auth;
 using KissLog.CloudListeners.RequestLogsListener;
 using KissLog.Formatters;
-using KissLogExample.ConsoleApp;
+using KissLogExample.ConsoleApp.Example2;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Text;
 
-Logger.SetFactory(new KissLog.LoggerFactory(new Logger(url: "KissLogExample.ConsoleApp")));
-
 IConfiguration configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
     .Build();
 
-ConfigureKissLog(configuration);
+ConfigureKissLog();
 
 var services = new ServiceCollection();
 services.AddLogging(logging =>
@@ -38,7 +36,12 @@ services.AddLogging(logging =>
 services.AddTransient<IMainService, MainService>();
 var serviceProvider = services.BuildServiceProvider();
 
+// set a global "Logger" that will be reused throughout the application execution
+Logger.SetFactory(new KissLog.LoggerFactory(new Logger(url: "KissLogExample.ConsoleApp.Example3")));
+
 ILogger logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+logger.LogInformation("Application started...");
 
 try
 {
@@ -55,12 +58,12 @@ finally
     Logger.NotifyListeners(loggers);
 }
 
-void ConfigureKissLog(IConfiguration configuration)
+void ConfigureKissLog()
 {
     KissLogConfiguration.Listeners
-        .Add(new RequestLogsApiListener(new Application(configuration["LogBee.OrganizationId"], configuration["LogBee.ApplicationId"]))
+        .Add(new RequestLogsApiListener(new Application("0337cd29-a56e-42c1-a48a-e900f3116aa8", "4f729841-b103-460e-a87c-be6bd72f0cc9"))
         {
-            ApiUrl = configuration["LogBee.ApiUrl"],
+            ApiUrl = "https://api.logbee.net/",
             UseAsync = false
         });
 
@@ -78,6 +81,3 @@ void ConfigureKissLog(IConfiguration configuration)
 
     KissLogConfiguration.InternalLog = (msg) => Console.WriteLine(msg);
 }
-
-
-

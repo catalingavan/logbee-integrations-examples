@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace KissLogExample.ConsoleApp
+namespace KissLogExample.ConsoleApp.Example2
 {
     internal class MainService : IMainService
     {
