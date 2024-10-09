@@ -2,9 +2,9 @@
 
 Logbee provides API for logging events and requests from your applications.
 
-## Create a Log Request
+## Create a Request Log
 
-To create a new log request, use the following endpoint:
+To create a new request log, use the following endpoint:
 
 Values for \_OrganizationId\_ and \_ApplicationId\_ can be retrieved from the user-interface page of the application configuration.
 
