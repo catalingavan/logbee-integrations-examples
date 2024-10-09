@@ -4,10 +4,10 @@
 
 [![KissLog](https://img.shields.io/nuget/v/KissLog.svg?style=flat-square&label=KissLog)](https://www.nuget.org/packages?q=kisslog)
 [![KissLog.AspNetCore](https://img.shields.io/nuget/v/KissLog.AspNetCore.svg?style=flat-square&label=KissLog.AspNetCore)](https://www.nuget.org/packages?q=kisslog)
-[![KissLog.AspNet.Mvc](https://img.shields.io/nuget/v/KissLog.KissLog.AspNet.Mvc.svg?style=flat-square&label=KissLog.AspNet.Mvc)](https://www.nuget.org/packages?q=kisslog)
-[![KissLog.AspNet.WebApi](https://img.shields.io/nuget/v/KissLog.KissLog.AspNet.WebApi.svg?style=flat-square&label=KissLog.AspNet.WebApi)](https://www.nuget.org/packages?q=kisslog)
+[![KissLog.AspNet.Mvc](https://img.shields.io/nuget/v/KissLog.AspNet.Mvc.svg?style=flat-square&label=KissLog.AspNet.Mvc)](https://www.nuget.org/packages?q=kisslog)
+[![KissLog.AspNet.WebApi](https://img.shields.io/nuget/v/KissLog.AspNet.WebApi.svg?style=flat-square&label=KissLog.AspNet.WebApi)](https://www.nuget.org/packages?q=kisslog)
 
-[![Downloads](https://img.shields.io/nuget/dt/KissLog.AspNetCore.svg?style=flat-square&label=Downloads)](https://www.nuget.org/packages?q=kisslog)
+[![Downloads](https://img.shields.io/nuget/dt/KissLog.svg?style=flat-square&label=Downloads)](https://www.nuget.org/packages?q=kisslog)
 
 ```csharp
 using KissLog;
