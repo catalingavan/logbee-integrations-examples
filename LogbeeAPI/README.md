@@ -44,5 +44,5 @@ Response:
 You can also interact with the Logbee API using [Hurl](https://hurl.dev/), a simple tool for making HTTP requests and performing assertions on HTTP responses.
 
 ```sh
-hurl .\post_request_logs.hurl --variables-file ..\API_KEYS
+hurl .\hurl\post_request_logs.hurl --variables-file .\hurl\api_keys
 ```
