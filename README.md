@@ -15,6 +15,16 @@ ApplicationId  = "4f729841-b103-460e-a87c-be6bd72f0cc9"
 ApiUrl         = "https://api.logbee.net/"
 ```
 
-- [![Serilog](/assets/serilog-180px.png)](/Serilog)
-- [![KissLog](/assets/kisslog-64.png)](/KissLog)
-- [![OpenTelemetry](/assets/OpenTelemetry.png)](/OpenTelemetry)
+<table>
+    <tr>
+        <td>
+            <img alt="Serilog" src="/assets/serilog-180px.png?v1" height="48" />
+        </td>
+        <td>
+            <img alt="KissLog" src="/assets/kisslog-64.png?v1" height="48" />
+        </td>
+        <td>
+            <img alt="OpenTelemetry" src="/assets/OpenTelemetry.png?v1" height="48" />
+        </td>
+    </tr>
+</table>
