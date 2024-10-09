@@ -17,3 +17,4 @@ ApiUrl         = "https://api.logbee.net/"
 
 - [![Serilog](/assets/serilog-180px.png)](/Serilog)
 - [![KissLog](/assets/kisslog-64.png)](/KissLog)
+- [![OpenTelemetry](/assets/OpenTelemetry.png)](/OpenTelemetry)
