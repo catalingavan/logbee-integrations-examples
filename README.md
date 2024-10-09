@@ -34,7 +34,7 @@ ApiUrl         = "https://api.logbee.net/"
         </td>
         <td>
             <a href="/ExpressJS">
-                <img alt="KissLog" src="/assets/expressjs-logo.png?v1" height="60" />
+                <img alt="KissLog" src="/assets/expressjs-120.png?v1" height="60" />
             </a>
         </td>
     </tr>
