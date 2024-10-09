@@ -1,6 +1,6 @@
 # OpenTelemetry for .NET
 
-.NET applications using [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet) to send the logs and traces to logbee.net
+.NET applications using [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet) to send the logs and traces to Logbee.
 
 [![OpenTelemetry.Exporter.OpenTelemetryProtocol](https://img.shields.io/nuget/v/OpenTelemetry.Exporter.OpenTelemetryProtocol.svg?style=flat-square&label=OpenTelemetry.Exporter.OpenTelemetryProtocol)](https://www.nuget.org/packages?q=OpenTelemetry.Exporter.OpenTelemetryProtocol)
 
