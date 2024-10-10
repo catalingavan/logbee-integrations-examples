@@ -12,6 +12,6 @@ OpenTelemetry logs which are not correlated with a trace (logs `span_id` is empt
 
 Logs without an associated trace ("span_id") will be grouped in 5 minutes intervals.
 
-![logs without trace](./assets/print-screens/otel-logs.png)
+![logs without trace](../assets/print-screens/otel-logs.png)
 
-![logs with trace](./assets/print-screens/otel-trace-logs.png)
+![logs with trace](../assets/print-screens/otel-trace-logs.png)
