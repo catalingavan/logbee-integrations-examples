@@ -41,3 +41,5 @@ ApiUrl         = "https://api.logbee.net/"
         </td>
     </tr>
 </table>
+
+\- or using the [LogbeeAPI](/LogbeeAPI) endpoints.
