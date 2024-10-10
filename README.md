@@ -21,22 +21,22 @@ ApiUrl         = "https://api.logbee.net/"
     <tr>
         <td>
             <a href="/Serilog" title="Serilog">
-                <img alt="Serilog" src="/assets/serilog-72.png?v1" height="60" />
+                <img alt="Serilog" src="/assets/serilog.png" height="60" />
             </a>
         </td>
         <td>
             <a href="/OpenTelemetry" title="OpenTelemetry">
-                <img alt="OpenTelemetry" src="/assets/OpenTelemetry-62.png?v1" height="60" />
+                <img alt="OpenTelemetry" src="/assets/opentelemetry.png" height="60" />
             </a>
         </td>
         <td>
             <a href="/KissLog" title="KissLog">
-                <img alt="KissLog" src="/assets/kisslog-64.png?v1" height="60" />
+                <img alt="KissLog" src="/assets/kisslog.png" height="60" />
             </a>
         </td>
         <td>
             <a href="/ExpressJS" title="ExpressJS">
-                <img alt="ExpressJS" src="/assets/expressjs-72.png?v1" height="60" />
+                <img alt="ExpressJS" src="/assets/expressjs.png" height="60" />
             </a>
         </td>
     </tr>

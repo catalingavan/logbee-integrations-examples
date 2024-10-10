@@ -1,0 +1,18 @@
+description: Success
+content:
+  application/json:
+    schema:
+      required: [id, applicationId, organizationId]
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "8ba6d37b-50d8-441d-beef-1485ba63a55a"
+        applicationId:
+          type: string
+          format: uuid
+          example: "a6171034-d02f-4df7-9ba6-b6ba4becbf9d"
+        organizationId:
+          type: string
+          format: uuid
+          example: "0337cd29-a56e-42c1-a48a-e900f3116aa8"

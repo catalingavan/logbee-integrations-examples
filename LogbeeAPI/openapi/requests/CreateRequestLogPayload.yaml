@@ -1,0 +1,168 @@
+openapi: 3.0.2
+components:
+  schemas:
+    CreateRequestLogPayload:
+      type: object
+      required: [organizationId, applicationId, startedAt, httpProperties]
+      properties:
+        organizationId:
+          description: The 'LogBee.OrganizationId' key, available on the /Applications/Configuration page.
+          type: string
+          format: uuid
+          example: '0337cd29-a56e-42c1-a48a-e900f3116aa8'
+        applicationId:
+          description: The 'LogBee.ApplicationId' key, available on the /Applications/Configuration page.
+          type: string
+          format: uuid
+          example: '4f729841-b103-460e-a87c-be6bd72f0cc9'
+        startedAt:
+          description: The date time when the request has started. Must be in UTC format.
+          example: '2024-10-10T07:43:51.946Z'
+          type: string
+          format: date-time
+        durationInMilliseconds:
+          description: The duration of the request, in milliseconds.
+          type: integer
+          minimum: 0
+        machineName:
+          type: string
+          example: 'DESKTOP-9HHSOFM'
+        sessionId:
+          description: The session id of the visitor.
+          type: string
+          example: '4e685b99-8e11-378b-e90d-87e301a39f33'
+        isAuthenticated:
+          description: Specifies if the visitor/request is authenticated.
+          type: boolean
+        httpProperties:
+          $ref: '#/components/schemas/HttpProperties'
+        logs:
+          description: The list of log messages
+          type: array
+          items:
+            $ref: '#/components/schemas/LogMessage'
+        exceptions:
+          description: The list of exceptions
+          type: array
+          items:
+            $ref: '#/components/schemas/Exception'
+        user:
+          description: Information about the authenticated user.
+          $ref: '#/components/schemas/User'
+        keywords:
+          type: array
+          uniqueItems: true
+          items:
+            description: |
+                A list of user-defined string values associated with this request.\
+                On Logbee application, users can search for this request by specifying any of the values specified in this "keywords" list.
+            type: string
+
+    LogMessage:
+      type: object
+      required: [logLevel, message]
+      properties:
+        logLevel:
+          type: string
+          example: 'Debug'
+          enum: [Trace, Debug, Information, Warning, Error, Critical]
+        message:
+          type: string
+          example: 'Products catalog has been fetched from cache'
+        millisecondsSinceRequestStarted:
+          description: The number of milliseconds that passed since the request has started.
+          type: integer
+          minimum: 0
+
+    Exception:
+      type: object
+      required: [exceptionType, exceptionMessage]
+      properties:
+        exceptionType:
+          type: string
+          example: 'System.NullReferenceException'
+        message:
+          type: string
+          example: 'Object reference not set to an instance of an object.'
+
+    HttpProperties:
+      type: object
+      required: [absoluteUri, method, response]
+      properties:
+        absoluteUri:
+          description: The request URI. Must be a fully qualified uri.
+          type: string
+          example: 'http://localhost/cart/checkout?tokenId=100512&cartId=708'
+        method:
+          type: string
+          example: 'GET'
+          enum: [GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH]
+        remoteAddress:
+          description: The client IP address.
+          type: string
+          example: '74.201.150.209'
+        request:
+          $ref: '#/components/schemas/RequestProperties'
+        response:
+          $ref: '#/components/schemas/ResponseProperties'
+
+    RequestProperties:
+      type: object
+      properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            'Content-Type': 'application/json'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
+        formData:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            'category_id': '100'
+            'product_name': 'DVD player'
+        cookies:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            'cookie_1': 'value for cookie_1'
+            'cookie_2': 'value for cookie_2'
+        claims:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            'claim_1': 'value for claim_1'
+            'claim_2': 'value for claim_2'
+
+    ResponseProperties:
+      type: object
+      required: [statusCode]
+      properties:
+        statusCode:
+          description: The response status code.
+          type: integer
+          minimum: 100
+          maximum: 599
+        contentLength:
+          description: The length of the response, in bytes.
+          type: integer
+          minimum: 0
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            'Content-Type': 'application/json; charset=utf-8'
+            'Cache-Control': 'no-cache, no-store, must-revalidate'
+
+    User:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+          example: 'user.name@example.com'
