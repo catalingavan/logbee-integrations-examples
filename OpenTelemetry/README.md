@@ -1,16 +1,16 @@
-# OpenTelemetry
+# OpenTelemetry (OTEL)
+
+OpenTelemetry (OTEL) is an open-source observability framework that provides APIs, libraries, and instrumentation to capture and export telemetry data (traces, metrics, logs) to monitoring platforms like Logbee.
 
 ## Trace
 
-Logbee saves the OpenTelemetry traces as individual requests, using the trace `span_id` as the unique identifier of each request.
+Logbee saves OpenTelemetry traces as individual requests, using the trace's `span_id` to uniquely identify each request. A **trace** represents an end-to-end request (e.g., a web request), and each **span** represents a single operation within that request (e.g., a HTTP request).
 
 ## Logs
 
-OpenTelemetry logs correlated with a trace (via the matching `span_id`), will be linked together with the corresponding trace (request) previously created in Logbee.
+OpenTelemetry logs that are correlated with a trace (i.e., where the `span_id` in the log matches the `span_id` of a trace) are automatically linked in Logbee. This allows for easy identification and investigation of logs alongside the trace they belong to.
 
-OpenTelemetry logs which are not correlated with a trace (logs `span_id` is empty), will be saved under a generic `/open-telemetry/logs` request.
-
-Logs without an associated trace ("span_id") will be grouped in 5 minutes intervals.
+Logs that do not have an associated trace (i.e., logs with an empty `span_id`) are saved separately. This usually represents logs that are generated independently of any request or operation being traced. Logbee groups these logs together into 5-minute intervals, which helps in monitoring untraced activity in your system.
 
 ![logs without trace](../assets/print-screens/otel-logs.png)
 
