@@ -12,6 +12,8 @@ OpenTelemetry logs that are correlated with a trace (i.e., where the `span_id` i
 
 Logs that do not have an associated trace (i.e., logs with an empty `span_id`) are saved separately. This usually represents logs that are generated independently of any request or operation being traced. Logbee groups these logs together into 5-minute intervals, which helps in monitoring untraced activity in your system.
 
-![logs without trace](../assets/print-screens/otel-logs.png)
+| <img alt="Logs with trace" src="../assets/print-screens/otel-trace-logs.png" height="400" /> | 
+|:--:| 
+| *Space* |
 
-![logs with trace](../assets/print-screens/otel-trace-logs.png)
+<img alt="Logs without trace" src="../assets/print-screens/otel-logs.png" height="400" />
