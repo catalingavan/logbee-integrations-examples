@@ -14,6 +14,8 @@ Logs that do not have an associated trace (i.e., logs with an empty `span_id`) a
 
 | <img alt="Logs with trace" src="../assets/print-screens/otel-trace-logs.png" height="400" /> | 
 |:--:| 
-| *Space* |
+| Logs correlated with a trace |
 
-<img alt="Logs without trace" src="../assets/print-screens/otel-logs.png" height="400" />
+| <img alt="Logs without trace" src="../assets/print-screens/otel-logs.png" height="400" /> | 
+|:--:| 
+| Logs that do not have an associated trace |
