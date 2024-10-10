@@ -15,6 +15,8 @@ ApplicationId  = "4f729841-b103-460e-a87c-be6bd72f0cc9"
 ApiUrl         = "https://api.logbee.net/"
 ```
 
+## Integrations
+
 <table>
     <tr>
         <td>
