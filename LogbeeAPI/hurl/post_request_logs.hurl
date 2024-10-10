@@ -6,46 +6,41 @@ Content-Type: application/json
   "applicationId": "{{ApplicationId}}",
   "startedAt": "2024-10-09T15:54:17.488Z",
   "durationInMilliseconds": 41,
+  "machineName": "PAYMENTS-SERVER",
+  "sessionId": "e22131d4-5863-47a3-b33a-86d2be40f064",
+  "isAuthenticated": true,
+  "user": {
+    "name": "user.name@example.com"
+  },
   "httpProperties": {
-    "absoluteUri": "http://localhost/catalog/createProduct?tokenId=20420&locale=en",
+    "absoluteUri": "https://payments-api/process-payment?attempt=1",
     "method": "POST",
     "request": {
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       "formData": {
-        "category_id": "100",
-        "product_name": "DVD player"
+        "payment_token": "YmMzM2VlODktNWYyNi00MmM3LTk0YTMtZGI5NzVlZDkxZWUz"
       }
     },
     "response": {
-      "statusCode": 302,
-      "headers": {
-        "Location": "/catalog/products?productId=208"
-      }
+      "statusCode": 500
     }
   },
   "logs": [
     {
       "logLevel": "Information",
-      "message": "Creating product 'DVD player' ..."
-    },
+      "message": "Payment has been initiated"
+    }
+  ],
+  "exceptions": [
     {
-      "logLevel": "Error",
-      "message": "Domain.Exceptions.CategoryNotFoundException: Product category (id=100) does not exist"
-    },
-    {
-      "logLevel": "Warning",
-      "message": "Will attach the product to the default category"
-    },
-    {
-      "logLevel": "Information",
-      "message": "Product has been saved in database. ProductId: 208"
+      "exceptionType": "PaymentsApp.Processor.Exceptions.InsufficientBalance",
+      "exceptionMessage": "Insufficient balance on payment"
     }
   ],
   "keywords": [
-    "product:208",
-    "category:100"
+    "CorrelationId:bc33ee89-5f26-42c7-94a3-db975ed91ee3"
   ]
 }
 ```

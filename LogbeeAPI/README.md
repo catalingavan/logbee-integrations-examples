@@ -2,7 +2,7 @@
 
 Logbee provides API for logging events and requests from your applications.
 
-## Create a Request Log
+## Create a Request Log ([schema](openapi/requests/CreateRequestLogPayload.yaml))
 
 To create a new request log, use the following endpoint:
 

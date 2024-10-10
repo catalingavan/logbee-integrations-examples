@@ -1,0 +1,27 @@
+openapi: 3.0.2
+info: 
+  title: logbee.Backend
+  description: >
+    APIs for interacting with logbee.Backend
+servers:
+  - url: https://api.logbee.net
+paths:
+  /request-logs:
+    post:
+      tags:
+        - Request logs
+      summary: Create a RequestLog
+      requestBody:
+        $ref: '#/components/requestBodies/CreateRequestBody'
+      responses:
+        200:
+          $ref: 'responses/200RequestCreated.yaml'
+components:
+  requestBodies:
+    CreateRequestBody:
+      description: The RequestLog properties
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: 'requests/CreateRequestLogPayload.yaml#/components/schemas/CreateRequestLogPayload'
