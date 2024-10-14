@@ -12,8 +12,8 @@ builder.Services.AddOpenTelemetry()
             .SetResourceBuilder(ResourceBuilder.CreateDefault()
                .AddAttributes(
                [
-                   new("LogBee.OrganizationId", "c6b66266-67ea-4719-aab4-809f5462c9a8"),
-                   new("LogBee.ApplicationId", "8c4c444d-dcef-4eba-bdf2-0a1a485847c5")
+                   new("LogBee.OrganizationId", "0337cd29-a56e-42c1-a48a-e900f3116aa8"),
+                   new("LogBee.ApplicationId", "4f729841-b103-460e-a87c-be6bd72f0cc9")
                ])
            )
             .AddAspNetCoreInstrumentation()
@@ -39,8 +39,8 @@ builder.Logging.AddOpenTelemetry(options =>
         .SetResourceBuilder(ResourceBuilder.CreateDefault()
             .AddAttributes(
             [
-                new("LogBee.OrganizationId", "c6b66266-67ea-4719-aab4-809f5462c9a8"),
-                new("LogBee.ApplicationId", "8c4c444d-dcef-4eba-bdf2-0a1a485847c5")
+                new("LogBee.OrganizationId", "0337cd29-a56e-42c1-a48a-e900f3116aa8"),
+                new("LogBee.ApplicationId", "4f729841-b103-460e-a87c-be6bd72f0cc9")
             ]))
         .AddOtlpExporter(opt =>
         {
