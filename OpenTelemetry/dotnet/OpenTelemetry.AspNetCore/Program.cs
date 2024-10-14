@@ -20,7 +20,7 @@ builder.Services.AddOpenTelemetry()
             .AddOtlpExporter(opt =>
             {
                 // # send trace to logbee.net OpenTelemetry endpoint
-                opt.Endpoint = new Uri("http://localhost:5265/open-telemetry/v1/traces");
+                opt.Endpoint = new Uri("https://api.logbee.net/open-telemetry/v1/traces");
 
                 // # send trace to OpenTelemetry Collector
                 // opt.Endpoint = new Uri("http://localhost:4318/v1/traces");
@@ -45,7 +45,7 @@ builder.Logging.AddOpenTelemetry(options =>
         .AddOtlpExporter(opt =>
         {
             // # send logs to logbee.net OpenTelemetry endpoint
-            opt.Endpoint = new Uri("http://localhost:5265/open-telemetry/v1/logs");
+            opt.Endpoint = new Uri("https://api.logbee.net/open-telemetry/v1/logs");
 
             // # send logs to OpenTelemetry Collector
             // opt.Endpoint = new Uri("http://localhost:4318/v1/logs");
