@@ -12,15 +12,15 @@ builder.Services.AddOpenTelemetry()
             .SetResourceBuilder(ResourceBuilder.CreateDefault()
                .AddAttributes(
                [
-                   new("LogBee.OrganizationId", "c6b66266-67ea-4719-aab4-809f5462c9a8"),
-                   new("LogBee.ApplicationId", "8c4c444d-dcef-4eba-bdf2-0a1a485847c5")
+                   new("LogBee.OrganizationId", "0337cd29-a56e-42c1-a48a-e900f3116aa8"),
+                   new("LogBee.ApplicationId", "4f729841-b103-460e-a87c-be6bd72f0cc9")
                ])
            )
             .AddAspNetCoreInstrumentation()
             .AddOtlpExporter(opt =>
             {
                 // # send trace to logbee.net OpenTelemetry endpoint
-                opt.Endpoint = new Uri("http://localhost:5265/open-telemetry/v1/traces");
+                opt.Endpoint = new Uri("https://api.logbee.net/open-telemetry/v1/traces");
 
                 // # send trace to OpenTelemetry Collector
                 // opt.Endpoint = new Uri("http://localhost:4318/v1/traces");
@@ -39,13 +39,13 @@ builder.Logging.AddOpenTelemetry(options =>
         .SetResourceBuilder(ResourceBuilder.CreateDefault()
             .AddAttributes(
             [
-                new("LogBee.OrganizationId", "c6b66266-67ea-4719-aab4-809f5462c9a8"),
-                new("LogBee.ApplicationId", "8c4c444d-dcef-4eba-bdf2-0a1a485847c5")
+                new("LogBee.OrganizationId", "0337cd29-a56e-42c1-a48a-e900f3116aa8"),
+                new("LogBee.ApplicationId", "4f729841-b103-460e-a87c-be6bd72f0cc9")
             ]))
         .AddOtlpExporter(opt =>
         {
             // # send logs to logbee.net OpenTelemetry endpoint
-            opt.Endpoint = new Uri("http://localhost:5265/open-telemetry/v1/logs");
+            opt.Endpoint = new Uri("https://api.logbee.net/open-telemetry/v1/logs");
 
             // # send logs to OpenTelemetry Collector
             // opt.Endpoint = new Uri("http://localhost:4318/v1/logs");
